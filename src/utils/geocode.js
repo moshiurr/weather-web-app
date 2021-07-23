@@ -10,7 +10,7 @@ const geocode = (address, callback) => {
 
 	request({ url: url, json: true }, (err, res) => {
 		if (err) callback("Unable to connect to location services", undefined);
-		else if (!res.body.features[0] || res.body.features === 0)
+		else if (!res.body.features || res.body.features === 0)
 			callback("Unable to find the places. Try another search.", undefined);
 		else {
 			const lat = res.body.features[0].center[1];
