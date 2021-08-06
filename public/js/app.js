@@ -18,9 +18,15 @@ weatherForm.addEventListener("submit", e => {
 		response.json().then(data => {
 			if (data.error) p1.textContent = data.error;
 			else {
-				p1.textContent = data.location;
+				p1.textContent = "Location: " + data.location;
 				p2.textContent =
-					data.weather + "  " + data.temperature + "  " + data.feels_like;
+					"Current weather is " +
+					data.weather +
+					". It is " +
+					data.temperature +
+					"° celsius and It feels like " +
+					data.feels_like +
+					"° celsius.";
 			}
 		});
 	});
